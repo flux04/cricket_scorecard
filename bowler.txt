@@ -1,8 +1,0 @@
-Reece Topley 35 42 3 1 
-David Willey 58 42 0 0 
-Brydon Carse 45 48 1 0 
-Moeen Ali 33 48 0 0 
-Reece Topley 35 42 3 1 
-David Willey 58 42 0 0 
-Bryndon Carse 45 48 1 0 
-Moeen Ali 33 48 0 0 
