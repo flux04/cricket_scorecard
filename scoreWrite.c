@@ -1,7 +1,11 @@
 #include "scoreboard.h"
 
 
-/* function to write batsman data into 'batsman.txt' text file. It produces output with comma separated values and every batsman entry is on a new line*/
+/* 
+function to write batsman data into 'batsman.txt' text file. 
+It produces output with comma separated values and every batsman entry is on a new line
+It takes in int n as input which is meant to be the number of batsmen (admin controlled)
+*/
 void writebatsman(int n)
 {
    printf("--------------------------\n");
@@ -59,7 +63,11 @@ void writebatsman(int n)
 
 }
 
-/* function to write bowler into 'bowler.txt' text file. It produces output with comma separated values and every bowler entry is on a new line */
+/* 
+function to write bowler into 'bowler.txt' text file. 
+It produces output with comma separated values and every bowler entry is on a new line 
+It takes in int n as input which is meant to be the number of bowlers (admin controlled)
+*/
 void writebowler(int n)
 {
 
@@ -117,7 +125,11 @@ void writebowler(int n)
 
 }
 
-
+/*
+writeController function acts as the function to control the flow of the score writing sequence.
+we use it to prompt admins with multiple menus and those menus lead into all the writing related functions.
+it prompts the admin to 3 choices and depending on the choice, it leads to suitable functions
+*/
 void writeController(){
 int control=1,input1,input2;
 printf("\n1. View existing scorecard\n2. Write a new static scorecard\n3. Write an dynamic scorecard");
