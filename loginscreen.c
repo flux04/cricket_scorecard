@@ -1,11 +1,11 @@
 #include "scoreboard.h"
 
-struct login                           // before the first use of `l`.
-{
-	char username[30];
-	char password[20];
-};
 
+/*
+login function to take credentials as input from user,
+it reads from file named 'login.txt' where we have username and password stored.
+it then validates the credentials entered by the user against the ones present in the file.
+*/
 void login (void)
 {
 char username[30],password[20];
@@ -36,12 +36,12 @@ bool keep_reading = true;		//bool to run loop to keep reading
 int current_line = 1;		//shows current line
 int username_line = 1; 			//line with username
 int password_line = 3;			//line with password
-char buffer[MAX_LINE];
+char buffer[30];
     //read from file and store username in l.username, password in l.password
 do 
 {
 	// read the next line from the file, store it into buffer
-	fgets(buffer, MAX_LINE, log);
+	fgets(buffer, 30, log);
 
 	// now, we go to lines 1 & 3 and copy their values to l.username and l.password
 	if (current_line == username_line)
@@ -76,7 +76,11 @@ current_line++;
 
 
 
-
+/*
+registration function to register or change admin credentials,
+it writes the credentials to the file named 'login.txt'.
+it then leads to login function so the admin can login.
+*/
 void registration(void)					//function for new admin registration
 {
 
@@ -123,7 +127,12 @@ printf("\nNow running login utility\n");
    
 login();
 }
-
+/*
+loginController function acts as the function to control the flow of the login sequence.
+we use it to prompt user with multiple menus and those menus lead into all the login related functions.
+if a guest is logged in, they move to score display function
+if an admin is loggin in, they move to another menu to edit or make new scorecards for the guests
+*/
 void loginController (void)				//controller function to control login screen
 {
 	system("clear");
@@ -165,4 +174,3 @@ void loginController (void)				//controller function to control login screen
 	display();		//Function to print scorecard
     	}
 }
-
