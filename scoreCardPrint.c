@@ -1,6 +1,11 @@
 #include "scoreboard.h"
 
-//function to write final scoreboard data to text file -scoreboard.txt
+/*
+function to write final scoreboard data to text file -scoreboard.txt
+takes values from array of structure variables, writes them in a scorecard template to the file 'scorecard.txt'
+this function then leads to the display function
+takes nbat and nbowl which is number of batsmen and bowlers respectively as inputs (admin controlled)
+*/
 void scoreCardPrint(int nbat, int nbowl){
 
 struct  batsman  bat[nbat];
