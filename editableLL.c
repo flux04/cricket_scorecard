@@ -1,7 +1,10 @@
 #include "scoreboard.h"
 
 
-// function to display linked list
+/* 
+function to display linked list
+this function takes struct node pointer to root or starting address of linked list and prints every node from there
+*/
 void displayLinkedList(struct node *root)
 {
     int i=0;
@@ -16,7 +19,12 @@ void displayLinkedList(struct node *root)
     printf("NULL\n\n");
 }
 
-// insert node at the beginning of the linked list
+/* 
+insert node at the beginning of the linked list
+returns a pointer to first node
+takes linked list head pointer, array for name,lastname, integers-runs, balls, fours and sixes (batsman data) as its inputs
+the task of the function is to insert a node at the beginning and link it to the rest of the list
+*/
 struct node* insertAtBegin(node *head, char *name, char *lastname, int runs, int balls, int fours, int sixes)
 {
     
@@ -44,7 +52,11 @@ struct node* insertAtBegin(node *head, char *name, char *lastname, int runs, int
     
 }
 
-// function to write linked list to a file
+/* 
+function to write linked list to a file
+takes in the filename and head node pointer of linked list as its inputs
+task of function is to write all the data from linked list to the file
+*/
 void writeLinkedList(char filename[], node* head){
     
     struct node* temp = head;
@@ -75,10 +87,14 @@ void writeLinkedList(char filename[], node* head){
     
     fclose(file);
     
+    
 }
 
-// edit nth element, takes head and index as inputs, edits the particular element
-void editNode(struct node* head, int index) {
+/* 
+function takes head pointer of linked list as input, and the index of the node to be edited (number of the batsman whose data has to be edited)
+task of function is to edit nth element, takes head and index as inputs, edits the particular element
+*/
+struct node* editNode(node* head, int index) {
     struct node* temp = (struct node *)malloc(sizeof(struct node));
     struct node* current = head;
     char name[10], lastname[10];
@@ -121,12 +137,15 @@ void editNode(struct node* head, int index) {
         count++;
         current = current->next;
     }
+        return head;
     
 }
 
-/*function to read linked list,
+/*
+function to read linked list, from file (if needed)
 returns struct node pointer
-takes string filename as input */
+takes string filename as input 
+*/
 struct node* readLinkedList(char filename[]){
     
     struct node* temp = (struct node *)malloc(sizeof(struct node));
@@ -173,7 +192,11 @@ struct node* readLinkedList(char filename[]){
     
 }
 
-/*controller code for this file*/
+/*
+editableController code for this file
+it presents the admin with menus to choose what he wants to do, enter data he wants and edit the linked list
+acts as the main controller for all functions in this file and gives them control whenever needed
+*/
 void editableController() {
     struct node *head = NULL;
     system("clear");
@@ -187,7 +210,7 @@ void editableController() {
     scanf("%d", &num);
     
     while(cont){
-    printf("\n1. Enter Info\n2. Edit Particular Batsman info\n3. Display Linked List\n3. Exit");
+    printf("\n1. Enter Info\n2. Edit Particular Batsman info\n3. Display Linked List\n4. Exit");
     scanf("%d", &input);
     
     if(input==1){
@@ -195,7 +218,7 @@ void editableController() {
 	    	for(int i=1; i<num+1; i++){
 	    	printf("\nEnter info for batsman %d",i);
 		//take name
-	   	  printf("Enter name: ");
+	   	  printf("\nEnter name: ");
 	   	//fgets(buffer, 10, stdin);
 	   	  scanf("%s", name);
 	   
@@ -228,10 +251,11 @@ void editableController() {
     
     else if(input==2)
     	{
-    		//to be written
     		printf("\nEnter the batman's number");
     		scanf("%d", &edit);
-    		editNode(head, edit);
+    		struct node* newHead= editNode(head, edit);
+    		displayLinkedList(newHead);
+    		
     	}   
     else if(input==3)
     	{
